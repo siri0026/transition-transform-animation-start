@@ -35,3 +35,146 @@
 	background-color: #e89380;
 	/*orange*/
 }
+
+/* Transitions */
+.transition .b1 {
+	transition: width 1s ease-in-out; /* Adds transition duration */
+}
+
+/* Makes Box 1 wider */
+.transition .b1:hover {
+	width: 400px;
+	/* height: 300px; */ /* Box height abruptly transitions */
+}
+
+.transition .b2 {
+	transition: width 1s, height 2s;
+	transition-timing-function: ease-out; /* Displays how visual transition occurs */
+	transition-delay: .5s; /* Delay/time after hovering */
+}
+
+.transition .b2:hover {
+	width: 250px;
+	height: 250px;
+}
+
+.transition .b3 {
+	transition: transform 1s cubic-bezier(0,1.37,1,-0.32) .5s;
+}
+
+.transition .b3:hover {
+	transform: rotate(80deg);
+}
+
+.transition .b4 {
+	/* Need to set duration for transition to function, can use transition-duration or shorthand */
+	transition: 2s;
+}
+
+.transition .b4:hover {
+	background-color: aquamarine;
+	border-radius: 50px;
+}
+
+
+
+/* Transform */
+.transform .b1:hover {
+	transform: translate(20px,30px);
+}
+
+.transform .b2:hover {
+	transform: scale(3);
+}
+
+.transform .b3:hover {
+	transform: rotate(45deg);
+}
+
+.transform .b3 {
+	transform-origin: right top;
+}
+
+.transform .b4 {
+	transform: skewX(5deg) skewY(30deg);
+}
+
+.transform .b4:hover {
+	transform: skewX(0) skewY(0);
+}
+
+/* Adds transition to all boxes */
+.transform .box {
+	transition: 5s ease-out;
+}
+
+
+/* Animation */
+@keyframes ChangeColor {
+	from {
+		background-color: antiquewhite;
+	}
+
+	to {
+		background-color: purple;
+	}
+}
+	
+.animation .b1{
+	animation-name: ChangeColor;
+	animation-duration: 2s;
+	animation-delay: 2s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes MoveAround {
+	0% {
+		transform: translate(0,0);
+	}
+
+	25% {
+		transform: translate(200px,0);
+	}
+
+	50% {
+		transform: translate(200px,200px);
+	}
+
+	75% {
+		transform: translate(0,200px);
+	}
+
+	100% {
+		transform: translate(0,0);
+	}
+}
+
+.animation .b2 {
+	animation-name: MoveAround;
+	animation-duration: 5s;
+	animation-delay: 5s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@keyframes TransformMe {
+	0% {
+		transform: scale(.5) rotatex(0) translate(0);
+	}
+
+	100% {
+		transform: scale(1) rotatex(360deg) translate(200px);
+	}
+}
+
+.animation .b3 {
+	animation: TransformMe 1.5s 11 alternate forwards ease-in-out;
+}
+
+.animation .b4 {
+	animation: TransformMe 1.5s 3s infinite alternate cubic-bezier(0,1.37,1,-0.32);
+}
+
+.animation .b4:hover {
+	animation-play-state: paused;
+}
